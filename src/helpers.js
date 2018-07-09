@@ -72,6 +72,12 @@ var prepDocument = module.exports.prepDocument = function(document) {
     node.parentNode.removeChild(node);
   });
 
+  // Strip out all <style> tags, as they *should* be useless
+  var styles = document.getElementsByTagName('style');
+  [].forEach.call(styles, function (node) {
+    node.parentNode.removeChild(node);
+  });
+
   // turn all double br's into p's
   // note, this is pretty costly as far as processing goes. Maybe optimize later.
   // document.body.innerHTML = document.body.innerHTML.replace(regexps.replaceBrsRe, '</p><p>').replace(regexps.replaceFontsRe, '<$1span>');
