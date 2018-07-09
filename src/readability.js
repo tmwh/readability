@@ -108,7 +108,7 @@ Readability.prototype.getTextBody = function(notDeprecated) {
   }
 
   var articleContent = helpers.grabArticle(this._document);
-  var rootElement = articleContent.childNodes[0];
+  var rootElement = articleContent;
   var textBody = '';
   if (rootElement) {
     var textElements = rootElement.childNodes;
